@@ -1,18 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaFacebookF, FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <footer className="bg-yellow-200 text-gray-800 py-12 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        
+
         {/* About */}
         <div>
           <h3 className="font-bold mb-2 border-b-2 border-black inline-block">ABOUT</h3>
           <ul className="mt-4 space-y-2">
-            <li><a href="#" className="hover:underline">About</a></li>
-            <li><a href="#" className="hover:underline">Blog</a></li>
-            <li><a href="#" className="hover:underline">Contact</a></li>
+            <li><Link to="/about" className="hover:underline">About</Link></li>
+            <li><Link to="/blog" className="hover:underline">Blog</Link></li>
+            <li><Link to="/contact" className="hover:underline">Contact</Link></li>
           </ul>
         </div>
 
@@ -20,14 +21,14 @@ const Footer = () => {
         <div>
           <h3 className="font-bold mb-2 border-b-2 border-black inline-block">WEDDING DESTINATION</h3>
           <ul className="mt-4 space-y-2">
-            <li><a href="#">Wedding in India</a></li>
-            <li><a href="#">Wedding in Jaipur</a></li>
-            <li><a href="#">Wedding in Pushkar</a></li>
-            <li><a href="#">Wedding in Ranthambore</a></li>
-            <li><a href="#">Wedding in Udaipur</a></li>
-            <li><a href="#">Wedding in Jodhpur</a></li>
-            <li><a href="#">Wedding in Bikaner</a></li>
-            <li><a href="#">Wedding in Jaisalmer</a></li>
+            <li><Link to="/wedding-in-india">Wedding in India</Link></li>
+            <li><Link to="/wedding-in-jaipur">Wedding in Jaipur</Link></li>
+            <li><Link to="/wedding-in-pushkar">Wedding in Pushkar</Link></li>
+            <li><Link to="/wedding-in-ranthambore">Wedding in Ranthambore</Link></li>
+            <li><Link to="/wedding-in-udaipur">Wedding in Udaipur</Link></li>
+            <li><Link to="/wedding-in-jodhpur">Wedding in Jodhpur</Link></li>
+            <li><Link to="/wedding-in-bikaner">Wedding in Bikaner</Link></li>
+            <li><Link to="/wedding-in-jaisalmer">Wedding in Jaisalmer</Link></li>
           </ul>
         </div>
 
