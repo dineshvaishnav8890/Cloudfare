@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b7b677c4.css",
+    "main.js": "/static/js/main.57be5f91.js",
+    "static/media/gallery4.jpg": "/static/media/gallery4.1dfc4004b0ec88d52feb.jpg",
+    "static/media/about.jpg": "/static/media/about.aff0a61a11bb360ddd79.jpg",
+    "static/media/gallery1.jpg": "/static/media/gallery1.c3bf60a250e73b1ba3d3.jpg",
+    "static/media/gallery2.jpg": "/static/media/gallery2.c3bf60a250e73b1ba3d3.jpg",
+    "static/media/gallery3.jpg": "/static/media/gallery3.fb6b9139cba686fd67a1.jpg",
+    "static/media/gallery5.jpg": "/static/media/gallery5.b5be5c1b397b5e93f022.jpg",
+    "static/media/gallery6.jpg": "/static/media/gallery6.57da1949fcef494836d4.jpg",
+    "static/media/gallery7.jpg": "/static/media/gallery7.57da1949fcef494836d4.jpg",
+    "static/media/service2.jpg": "/static/media/service2.57da1949fcef494836d4.jpg",
+    "static/media/Hero2.jpg": "/static/media/Hero2.e27a99eedeef9b38d97a.jpg",
+    "static/media/Hero3.jpg": "/static/media/Hero3.711be678ce5200beab39.jpg",
+    "static/media/service4.jpg": "/static/media/service4.711be678ce5200beab39.jpg",
+    "static/media/gallery8.jpg": "/static/media/gallery8.b62a825a4640ffef8e96.jpg",
+    "static/media/Hero1.jpg": "/static/media/Hero1.dea7a20a09b21cd6cf05.jpg",
+    "static/media/service1.jpg": "/static/media/service1.2320e12f4860fe2fba67.jpg",
+    "static/media/pushkar.jpg": "/static/media/pushkar.9b3d8eecae6a466a60f4.jpg",
+    "static/media/service5.jpg": "/static/media/service5.143584dfc683d3d790e8.jpg",
+    "static/media/jaipur.jpg": "/static/media/jaipur.4a3d8b55379200c26062.jpg",
+    "static/media/entertainment.jpg": "/static/media/entertainment.351acc07f4e4157934c3.jpg",
+    "index.html": "/index.html",
+    "main.b7b677c4.css.map": "/static/css/main.b7b677c4.css.map",
+    "main.57be5f91.js.map": "/static/js/main.57be5f91.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b7b677c4.css",
+    "static/js/main.57be5f91.js"
+  ]
+}

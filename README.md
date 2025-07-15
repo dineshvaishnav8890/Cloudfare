@@ -1,153 +1,70 @@
-# 🌐 Scalable Static Website Deployment with S3, Cloudflare & GitHub Actions
+# Getting Started with Create React App
 
-This project demonstrates how to **host and auto-deploy a static website** using **AWS S3 (Free Tier)**, **Cloudflare (Free CDN + HTTPS)**, and **GitHub Actions for CI/CD**.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-> ✅ Perfect for beginners learning modern web hosting and automation.
+## Available Scripts
 
----
+In the project directory, you can run:
 
-## 🚀 Live Website
+### `npm start`
 
-🔗 [https://www.dinesh.icu](https://www.dinesh.icu)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
----
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## 🧰 Tools & Technologies Used
+### `npm test`
 
-- **AWS S3** – Object storage for static website hosting
-- **Cloudflare** – CDN, SSL, and DNS management
-- **GitHub Actions** – Automates deployment on every commit
-- **HTML/CSS** – Static website content
-- **Bash** – Sync script (optional)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
----
+### `npm run build`
 
-## 📁 Project Structure
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-.
-├── index.html
-├── styles.css
-└── .github
-└── workflows
-└── deploy.yml # GitHub Actions workflow for CI/CD
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run eject`
 
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
----
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## 🛠️ Setup Instructions (Step-by-Step)
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-### ✅ 1. Create and Upload Static Website
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-- Create a simple `index.html` and optional `styles.css`
-- Initialize Git repo and push to GitHub
+## Learn More
 
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/your-username/your-repo.git
-git push -u origin main
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
+### Analyzing the Bundle Size
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-✅ 2. Create S3 Bucket for Website Hosting
-Bucket Name: www.dinesh.icu
+### Making a Progressive Web App
 
-Disable "Block All Public Access"
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-Enable Static Website Hosting with index.html
+### Advanced Configuration
 
-Add the following Bucket Policy:
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "PublicRead",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::www.dinesh.icu/*"
-    }
-  ]
-}
+### Deployment
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
+### `npm run build` fails to minify
 
-✅ 3. Configure Cloudflare
-Add your domain dinesh.icu to Cloudflare
-
-Change your domain registrar’s nameservers to Cloudflare’s
-
-Add a CNAME record:
-
-Name: www
-
-Target: www.dinesh.icu.s3-website.<region>.amazonaws.com
-
-Set SSL Mode to Flexible
-
-Enable "Always Use HTTPS"
-
-
-
-
-
-
-🔐 Store AWS credentials in GitHub → Repository → Settings > Secrets.
-
-
-
-
-✅ 4. Set up GitHub Actions (CI/CD)
-
-name: Deploy to S3
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
-
-    - name: Sync to S3
-      uses: jakejarvis/s3-sync-action@master
-      with:
-        args: --delete
-      env:
-        AWS_S3_BUCKET: www.dinesh.icu
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: eu-north-1
-        SOURCE_DIR: .
-
-
-
-
-📄 Deployment Report
-Step	Status
-S3 Bucket Setup	✅ Success
-Cloudflare Domain Setup	✅ Success
-GitHub Actions CI/CD	✅ Success
-SSL & HTTPS Configuration	✅ Success
-Website Live	✅ Success
-
-
-🚀 Live Website
-🔗 Visit https://www.dinesh.icu
-
-
-
-
-
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
