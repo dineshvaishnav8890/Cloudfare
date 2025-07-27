@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+env:
+  SONAR_HOST_URL: http://3.110.194.208:9000
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -16,7 +20,7 @@ jobs:
     - name: ⚙️ Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 20  # Updated to fix `react-router@7.6.3` node engine warning
 
     - name: 📦 Install Dependencies
       run: npm install
@@ -40,9 +44,6 @@ jobs:
       uses: sonarsource/sonarqube-scan-action@v1.1.0
       with:
         projectBaseDir: .
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: http://3.110.194.208:9000
 
     - name: 🔐 Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2
