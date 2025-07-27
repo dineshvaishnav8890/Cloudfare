@@ -40,10 +40,9 @@ jobs:
       uses: sonarsource/sonarqube-scan-action@v1.1.0
       with:
         projectBaseDir: .
-        args: >
-          -Dsonar.host.url=http://3.110.194.208:9000
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: http://3.110.194.208:9000
 
     - name: 🔐 Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2
