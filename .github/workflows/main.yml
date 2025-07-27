@@ -10,41 +10,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repo
+    - name: 📥 Checkout Code
       uses: actions/checkout@v3
 
-    - name: Setup Node
+    - name: ⚙️ Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 18
 
-    - name: Install Dependencies
+    - name: 📦 Install Dependencies
       run: npm install
 
-    - name: Build React App
+    - name: 🛠️ Build React App
       run: npm run build
 
-    - name: Set up Java 17
+    - name: ☕ Set up Java (required for SonarQube)
       uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
         java-version: 17
 
-    - name: SonarQube Scan
+    - name: 💾 Cache SonarQube packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar
+
+    - name: 🔍 SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@v1.1.0
       with:
         projectBaseDir: .
+        args: >
+          -Dsonar.host.url=http://3.110.194.208:9000
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: http://3.110.194.208:9000
 
-    - name: Configure AWS Credentials
+    - name: 🔐 Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_REGION }}
 
-    - name: Deploy to S3
+    - name: 🚀 Deploy to S3
       run: |
         aws s3 sync build/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
